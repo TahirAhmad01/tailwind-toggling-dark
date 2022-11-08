@@ -51,6 +51,9 @@ function App() {
               <a href="/#" className="fb customButton">
                 <i className="fab fa-facebook-f"></i>
               </a>
+              <a href="/#" className="fb customButton">
+                <i className="fab fa-facebook-f"></i>
+              </a>
               <a href="/#" className="twitter customButton">
                 <i className="fab fa-twitter"></i>
               </a>
