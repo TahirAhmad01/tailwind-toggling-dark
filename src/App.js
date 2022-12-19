@@ -3,14 +3,12 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import avatar from "./assets/image/boy-avatar-6299533-5187865.webp";
 
 function App() {
-  const [isDarkMode, setDarkMode] = useState(false);
   const [theme, setTheme] = useState(localStorage.theme);
   const colorTheme = theme === "dark" ? "light" : "dark";
   console.log(theme);
 
-  const toggleDarkMode = (checked) => {
+  const toggleDarkMode = () => {
     setTheme(colorTheme);
-    setDarkMode(checked);
   };
 
   useEffect(() => {
@@ -18,12 +16,8 @@ function App() {
     root.classList.remove(colorTheme);
     root.classList.add(theme);
 
-    if (theme === "dark") {
-      setDarkMode(true);
-    }
-
     localStorage.setItem("theme", theme);
-  }, [colorTheme, isDarkMode, theme]);
+  }, [colorTheme, theme]);
 
   return (
     <div className="h-screen bg-[url('./assets/image/bglight.jpg')] dark:bg-[url('./assets/image/bgdark.jpg')] bg-cover">
@@ -32,7 +26,7 @@ function App() {
           {" "}
           <div className="flex justify-end absolute right-4 top-5">
             <DarkModeSwitch
-              checked={isDarkMode}
+              checked={theme === "dark" ? true : false}
               onChange={toggleDarkMode}
               size={120}
               className="h-10 w-14"
